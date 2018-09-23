@@ -64,6 +64,9 @@
 .prev-next .next {
   text-align: right;
 }
+.site-header {
+  border-top: 0px;
+}
 #markdown-toc::before {
   content: "Contents";
   margin-left: -$spacing-unit;
