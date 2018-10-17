@@ -8,7 +8,6 @@ tags: [algorithms]
 
 * TOC
 {:toc}
-## Introduction
 Regression is one of the most basic and fundamental Machine Learning techniques,
  which lays the foundation for many of the more complicated techniques and algorithms
 that are used in practise. In this article, we will look at the mathematical formulation
