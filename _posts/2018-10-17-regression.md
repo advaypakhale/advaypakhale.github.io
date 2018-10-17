@@ -89,4 +89,6 @@ I will not derive them here, but please feel free to attempt the derivation your
 
 ## Multiple Linear Regression
 
+## Multivariate Linear Regression/General Linear Model
+
 ## Coding a Regression Algorithm from Scratch
