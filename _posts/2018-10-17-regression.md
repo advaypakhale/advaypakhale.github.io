@@ -196,9 +196,9 @@ squared residuals:
 $$
 \begin{equation}
   \begin{split}
-    S(\mathbf{β}) &= \frac{1}{m}‖\mathbf{ϵ}‖^2 \\\\
-                  &= \frac{1}{m}‖\mathbf{y}-\mathbf{\hat{y}}‖^2 \\\\
-                  &= \frac{1}{m}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2
+    S(\mathbf{β}) &= \frac{1}{n}‖\mathbf{ϵ}‖^2 \\\\
+                  &= \frac{1}{n}‖\mathbf{y}-\mathbf{\hat{y}}‖^2 \\\\
+                  &= \frac{1}{n}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2
   \end{split}
 \label{eq16}
 \end{equation}
@@ -219,12 +219,12 @@ to 0.
 $$
   \begin{gathered}
     ∇S(\mathbf{\hat{β}}) = 0 \\\\
-    \frac{∂}{∂\mathbf{β}}(\frac{1}{m}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2)\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
-    \frac{1}{m}\frac{∂}{∂\mathbf{β}}(\mathbf{y}-\mathbf{X}\mathbf{β})^\mathrm{T}(\mathbf{y}-\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
-    \frac{1}{m}\frac{∂}{∂\mathbf{β}}(\mathbf{y}^\mathrm{T}\mathbf{y} - \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y} - \mathbf{y}^\mathrm{T}\mathbf{X}\mathbf{β} + \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
+    \frac{∂}{∂\mathbf{β}}(\frac{1}{n}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2)\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
+    \frac{1}{n}\frac{∂}{∂\mathbf{β}}(\mathbf{y}-\mathbf{X}\mathbf{β})^\mathrm{T}(\mathbf{y}-\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
+    \frac{1}{n}\frac{∂}{∂\mathbf{β}}(\mathbf{y}^\mathrm{T}\mathbf{y} - \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y} - \mathbf{y}^\mathrm{T}\mathbf{X}\mathbf{β} + \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
     (\mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y})^\mathrm{T} = \mathbf{y}^\mathrm{T}\mathbf{X}\mathbf{β}\,\text{has the dimensions 1x1, so it is equal to its own transpose and}\,\mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y} = \mathbf{y}^\mathrm{T}\mathbf{X}\mathbf{β} \\\\⁠
-    \frac{1}{m}\frac{∂}{∂\mathbf{β}}(\mathbf{y}^\mathrm{T}\mathbf{y} - 2\mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
-    \frac{2}{m}(-\mathbf{X}^\mathrm{T}\mathbf{y} + (\mathbf{X}^\mathrm{T}\mathbf{X})\mathbf{\hat{β}}) = 0 \\\\
+    \frac{1}{n}\frac{∂}{∂\mathbf{β}}(\mathbf{y}^\mathrm{T}\mathbf{y} - 2\mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{β}^\mathrm{T}\mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})\Bigg|_{\mathbf{β}=\mathbf{\hat{β}}} = 0 \\\\
+    \frac{2}{n}(-\mathbf{X}^\mathrm{T}\mathbf{y} + (\mathbf{X}^\mathrm{T}\mathbf{X})\mathbf{\hat{β}}) = 0 \\\\
   \end{gathered} \\\\
 $$
 
@@ -255,9 +255,9 @@ Gradient descent is a rather intuitive algorithm, and really isn't very hard to 
 say that you are trying to climb down a hill, but blindfolded. You want to get to the bottom of the hill
 in the shortest way possible. Since you are blindfolded, you can only feel the steepness of the terrain in
 the near vicinity of you with your foot. Intuitively, what you would do is to try to find the direction
-where the descent is the steepest, and take a step in that direction. Then you would again try to find the
-direction of steepest descent again, and take a step in that direction again. You would repeat this until
-the terrain becomes nearly flat, at which point you would know that you have reached the bottom of the
+where the descent is the steepest, and take a step in that direction. Then you would try to find the
+direction of steepest descent again, and take another step in that direction. You would repeat this until
+the terrain became nearly flat, at which point you would know that you have reached the bottom of the
 hill.
 
 Gradient descent works exactly this way! Let $F(\mathbf{x})$ be a multi-variable function that is defined
@@ -276,22 +276,23 @@ $$
 $$
 
 Where $\gamma\in\mathbb{R}^{+}$ is known as the step parameter. This parameter controls the "step size",
-which is how much you move $\mathbf{a}$ in the direction of the parameter. Intuitively, a larger step
-parameter would mean that we move towards the minimum faster and in less iterations, however it is much
-easier to overshoot it. A smaller step parameter would mean that convergence to the minimum is slower, but
-the probability that we will hit it is higher. Many solutions exist for this problem, amongst which
-probably the most popular is introducing an "adaptive" step parameter. This parameter starts off big, and
-as the gradient gets less steep (which is indicative of approaching minima), the parameter is decreased so
-that the algorithm does not overshoot. I will not cover the specifics here nor will I implement it.
+which is how much you move $\mathbf{a}$ in the direction of the negative gradient. Intuitively, a larger
+step parameter would mean that we move towards the minimum faster and in less iterations, however it would
+be much easier to overshoot it. A smaller step parameter would mean that convergence to the minimum is
+slower, but the probability that we would hit it is higher. Many solutions exist for this problem, amongst
+which probably the most popular is introducing an "adaptive" step parameter. This parameter starts off
+big, and as the gradient gets less steep (which is indicative of approaching minima), the parameter is
+decreased so that the algorithm does not overshoot. I will not cover the specifics here nor will I
+implement it.
 
-Instead of analytically solving for the optimal model parameters, we can now use gradient descent with our
+Instead of analyti d cally solving for the optimal model parameters, we can now use gradient descent with our
 cost function! Let us modify \eqref{eq16} to be the "one half" mean squared error. This is purely so that
 when we differentiate our cost function later, we will get rid of that pesky $2$ in the numerator.
 
 $$
   \begin{equation}
   \label{eq20}
-    S(\mathbf{β}) = \frac{1}{2m}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2
+    S(\mathbf{β}) = \frac{1}{2n}‖\mathbf{y}-\mathbf{X}\mathbf{β}‖^2
   \end{equation}
 $$
 
@@ -300,7 +301,7 @@ We now differentiate:
 $$
   \begin{equation}
   \label{eq21}
-    ∇S = \frac{1}{m}(-\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})
+    ∇S = \frac{1}{n}(-\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β})
   \end{equation}
 $$
 
@@ -310,15 +311,15 @@ $$
   \begin{equation}
   \label{eq22}
     \begin{split}
-      \mathbf{β_{n+1}} &= \mathbf{β_n} - γ∇S(\mathbf{β_n}) \\\\
-                       &= \mathbf{β_n} - \frac{γ}{m}(-\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β_n}) \\\\
-                       &= \mathbf{β_n} - \frac{γ}{m}\mathbf{X}^\mathrm{T}(\mathbf{X}\mathbf{β_n} - \mathbf{y})
+      \mathbf{β_{q+1}} &= \mathbf{β_q} - γ∇S(\mathbf{β_q}) \\\\
+                       &= \mathbf{β_q} - \frac{γ}{n}(-\mathbf{X}^\mathrm{T}\mathbf{y} + \mathbf{X}^\mathrm{T}\mathbf{X}\mathbf{β_q}) \\\\
+                       &= \mathbf{β_q} - \frac{γ}{n}\mathbf{X}^\mathrm{T}(\mathbf{X}\mathbf{β_q} - \mathbf{y})
     \end{split}
   \end{equation}
 $$
 
 How do we know when to stop? Some variations of this algorithm stop when the gradient is within a certain
-range that is close to zero that can be arbitrarily define, such as $-0.001≤∇S≤0.001$. Other variations
+range that is close to zero that can be arbitrarily defined, such as $-0.001≤∇S≤0.001$. Other variations
 just run the algorithm for a large predetermined number of iterations, known in machine learning terms as
 *epochs* (this is the method I will be implemeting later). Other variations include storing the previous
 epochs' cost in a variable, computing the cost in the current epoch, and subtracting the two to see if the
