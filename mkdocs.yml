@@ -1,4 +1,111 @@
 # yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
-site_name: My Docs
+site_name: Advay's Blog
+site_url: https://advaypakhale.github.io
 theme:
   name: material
+  custom_dir: overrides
+  features:
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: white
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: JetBrains Mono
+  icon:
+    logo: octicons/code-16
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+nav:
+  - Home: index.md
+  - Blog:
+      - blog/index.md
+      - Tags: blog/tags.md
+  - Resume:
+      - https://drive.google.com/file/d/1bk0eF2B7nBcckGtvCCuHGj9DBqPzkEFm/view?usp=sharing
+plugins:
+  - search
+  - blog:
+      blog_toc: true
+      archive_date_format: MMMM yyyy
+      pagination_per_page: 5
+  - meta
+  - tags:
+      tags_file: blog/tags.md
+  - social
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      name: advaypakhale on GitHub
+      link: https://github.com/advaypakhale
+    - icon: fontawesome/brands/linkedin
+      name: My LinkedIn
+      link: https://linkedin.com/in/advay-pakhale-30934ab1/
+    - icon: fontawesome/solid/paper-plane
+      name: Email me
+      link: mailto:advay.pakhale@u.nus.edu
+copyright: >
+  Copyright &copy; 2018 – 2025 Advay Pakhale
+
+hooks:
+  - hooks/socialmedia.py
+markdown_extensions:
+  - abbr
+  - admonition
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.blocks.caption
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.details
+  - pymdownx.highlight:
+      use_pygments: true
+      anchor_linenums: true
+      pygments_lang_class: true
+      auto_title: true
+      linenums: true
+      linenums_style: pymdownx-inline
+      line_spans: __span
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true

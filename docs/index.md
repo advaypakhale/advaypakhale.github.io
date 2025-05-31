@@ -1,17 +1,18 @@
-# Welcome to MkDocs
+---
+hide:
+  - toc
+  - path
+  - navigation
+---
+# Hello, I'm Advay!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## About Me
 
-## Commands
+I'm a rising junior at the National University of Singapore, currently reading Mathematics and Computer Science as part of a double-degree programme.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+I'm broadly interested in solving fun and interesting problems with a computational flavour, in domains including but not limited to:
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* Robotics (Software Engineer at [Bumblebee Autonomous Systems](https://bumblebee.sg/))
+* AI/Machine Learning (previously MLE intern at [Pixta Vietnam](https://pixta.vn/), awesome 3 months spent in Vietnam through [NOC](https://enterprise.nus.edu.sg/education-programmes/nus-overseas-colleges/))
+* Low-level stuff (not very good at it, trying to get better through stupid projects like [this](https://github.com/advaypakhale/TCPOverPaperAeroplanes))
+* Mathematics has my heart <3 (pure and applied, with a bias towards analysis)

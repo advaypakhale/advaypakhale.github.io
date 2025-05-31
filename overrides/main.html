@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  <title>Advay's Blog</title>
+{% endblock %}
+
+{% block styles %}
+  <!-- Add scripts that need to run before here -->
+  {{ super() }}
+  <!-- Add scripts that need to run afterwards here -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/bitmaks/cm-web-fonts@latest/fonts.css">
+{% endblock %}
