@@ -52,25 +52,33 @@ $$
 f(a + h) - f(a) = f'(a)h + |h|g(h)\,.
 $$
 
-One can check that the converse holds as well. Thus, we have an equivalent definition of differentiability that avoids a quotient, and can thus be easily extended to multiple variables; the products become matrix/vector products and $f'(a)$ would become the Jacobian $J_f$.
+One can check that the converse holds as well. Thus, we have an equivalent definition of differentiability that avoids a quotient, and can thus be easily extended to multiple variables; the products become matrix/vector products and $f'(a)$ becomes the Jacobian $J_f$.
 
-!!! tip "Key Intuition"
-    Sometimes, the term $|h|g(h)$ is notated as $o(|h|)$ (we say $f(x) = o(g(x))$ if $\lim_{x \to \infty}{\frac{f(x)}{g(x)}} = 0$). This captures the idea that the derivative is a "good" linear approximation of the function, since the error term $|h|g(h)$ is "small" in the sense that it goes to $0$ and vanishes faster than the other terms do.
+## The Key Intuition
 
-## An equivalent definition
+Notice that the term $|h|g(h) = f(a+h) - (f(a) + J_f h)$ represents the error between the function and its linear approximation. We want this linear approximation to be "good" — in particular, we should be able to make some statement about the error term above.
 
-An equivalent definition cuts to the heart of the idea immediately. From one of the StackExchange answers [below](#sources), the key question is how we may define the idea of a "good" linear approximation:
+From one of the StackExchange answers [below](#sources),
 
 !!! tip "Key Intuition"
     ... in neighborhoods close to the point $a$, the difference between the function and its linear approximations should be incredibly small − in particular, it should be even smaller than the difference $|h|$ between the new and old inputs. Put another way, the approximation should get "infinitely" good, relative to the change in input, as the change in input goes to 0 (in magnitude).
 
-The error between the function and its linear approximation is $|f(a+h) - (f(a) + J_f h)|$, and for this error to become extremely (or even infinitely) small with respect to the error in the input $|h|$, we need
+Thus for the error $|h|g(h) = f(a+h) - (f(a) + J_f h)$ to become extremely (or even infinitely) small with respect to the error in the input $|h|$, we need
 
 $$
-\lim_{h \to 0}\frac{|f(a+h) - (f(a) + J_f h)|}{|h|} = 0\,.
+\lim_{h \to 0}\frac{|f(a+h) - (f(a) + J_f h)|}{|h|} = \lim_{h \to 0}{g(h)} = 0\,,
 $$
 
-The existence of such a matrix $J_f$ is in fact another equivalent definition for differentiability of $f$ at $a$.
+which is exactly the condition in the definition of differentiability, validating our intuition.
+
+Using little-o notation (we say $f(x) = o(g(x))$ if $\lim_{x \to \infty}{\frac{f(x)}{g(x)}} = 0$), we can very succinctly capture the idea that the error between the function and its linear approximation goes to $0$ faster than the error in the input does.
+
+!!! tip "Key Result"
+    $$
+    f(a+h) - (f(a) + J_f h) = o(|h|)\,.
+    $$
+
+This last equation, at least to me, is all that is worth remembering.
 
 ## Sources
 Whenever I needed a refresher on the concept of differentiability, I would always go back to these three resources:
