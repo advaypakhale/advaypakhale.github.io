@@ -2,7 +2,7 @@
 date:
   created: 2025-06-12
 readtime: 10
-pin: true
+# pin: true
 tags:
   - mathematics
   - analysis
