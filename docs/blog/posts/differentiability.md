@@ -11,6 +11,7 @@ tags:
 # A Note on Differentiability
 
 The purpose of this note is to collect together some basic ideas and intuitions for the concept of differentiability.
+<!-- more -->
 
 We define say that a function $f: \mathbb{R} \to \mathbb{R}$ is differentiable at some point $a$ if the limit
 
