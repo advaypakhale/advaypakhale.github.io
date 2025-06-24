@@ -50,7 +50,7 @@ nav:
       - blog/index.md
       - Tags: blog/tags.md
   - Resume:
-      - https://drive.google.com/file/d/1bk0eF2B7nBcckGtvCCuHGj9DBqPzkEFm/view?usp=sharing
+      - https://github.com/advaypakhale/resume/releases/latest/download/advay_pakhale_resume.pdf
 plugins:
   - search
   - blog:
