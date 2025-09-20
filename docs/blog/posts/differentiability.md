@@ -8,7 +8,7 @@ tags:
   - analysis
 ---
 
-# A Note on Differentiability
+# A note on differentiability
 
 The purpose of this note is to collect together some basic ideas and intuitions for the concept of differentiability.
 <!-- more -->
