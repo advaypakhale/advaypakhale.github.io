@@ -1,5 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
 :root {
-  /* --md-text-font: "Computer Modern Serif"; */
-  /* --md-text-font: "Courier Prime"; */
   --md-text-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+/* Light mode: warm cream palette matching pi.website (#F5F4EF) */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #F5F4EF;
+  --md-default-bg-color--light: #EDECE6;
+  --md-default-bg-color--lighter: #E8E7E1;
+  --md-default-bg-color--lightest: #E2E1DB;
+  --md-primary-bg-color: #F5F4EF;
+  --md-primary-bg-color--light: rgba(0, 0, 0, 0.07);
+  --md-typeset-a-color: #595959;
+  --md-accent-fg-color: #403E37;
+  --md-accent-fg-color--transparent: rgba(64, 62, 55, 0.1);
+}
+
+/* Serif for h1/h2 in content (mirrors pi.website's Signifier usage) */
+.md-typeset h1,
+.md-typeset h2 {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-weight: 400;
+}
+

@@ -23,7 +23,7 @@ theme:
     # Palette toggle for light mode
     - scheme: default
       primary: white
-      accent: teal
+      accent: grey
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
