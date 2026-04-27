@@ -132,6 +132,11 @@
   text-decoration-color: rgba(245, 244, 239, .6);
 }
 
+/* Blog posts only: Computer Modern Serif */
+.md-content--post .md-typeset {
+  font-family: 'Computer Modern Serif', Georgia, serif;
+}
+
 /* Nav tabs: underline with generous offset (pi.website nav: offset 8px) */
 .md-tabs__link {
   text-underline-offset: 6px;
