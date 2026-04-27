@@ -76,20 +76,14 @@
 }
 
 /* =============================================
-   HEADER — flat, blends into page background
+   HEADER — seamless: no shadow at rest, tabs borderless
    ============================================= */
 .md-header {
-  box-shadow: none;
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
-}
-
-/* Remove the scroll-triggered shadow, keep the border */
-.md-header[data-md-state="shadow"] {
   box-shadow: none;
 }
 
 .md-tabs {
-  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: none;
 }
 
 /* =============================================
