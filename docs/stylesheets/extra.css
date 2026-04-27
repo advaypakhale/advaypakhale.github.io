@@ -1,17 +1,143 @@
+/* =============================================
+   BASE FONT
+   ============================================= */
 :root {
   --md-text-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Light mode: warm cream palette matching pi.website (#F5F4EF) */
+/* =============================================
+   LIGHT MODE — warm cream (pi.website palette)
+   ============================================= */
 [data-md-color-scheme="default"] {
-  --md-default-bg-color: #F5F4EF;
-  --md-default-bg-color--light: #EDECE6;
-  --md-default-bg-color--lighter: #E8E7E1;
+  /* Page background */
+  --md-default-bg-color:           #F5F4EF;
+  --md-default-bg-color--light:    #EDECE6;
+  --md-default-bg-color--lighter:  #E8E7E1;
   --md-default-bg-color--lightest: #E2E1DB;
-  --md-primary-bg-color: #F5F4EF;
-  --md-primary-bg-color--light: rgba(0, 0, 0, 0.07);
-  --md-typeset-a-color: #595959;
-  --md-accent-fg-color: #403E37;
-  --md-accent-fg-color--transparent: rgba(64, 62, 55, 0.1);
+
+  /* Foreground text */
+  --md-default-fg-color:           rgba(0, 0, 0, .87);
+  --md-default-fg-color--light:    rgba(0, 0, 0, .54);
+  --md-default-fg-color--lighter:  rgba(0, 0, 0, .32);
+  --md-default-fg-color--lightest: rgba(0, 0, 0, .07);
+
+  /* Header/nav — cream bg so header blends into page; dark text for contrast */
+  --md-primary-fg-color:           rgba(0, 0, 0, .87);
+  --md-primary-fg-color--light:    rgba(0, 0, 0, .54);
+  --md-primary-fg-color--lighter:  rgba(0, 0, 0, .26);
+  --md-primary-bg-color:           #F5F4EF;
+  --md-primary-bg-color--light:    rgba(0, 0, 0, .07);
+
+  /* Accent: pi.website warm dark border tone */
+  --md-accent-fg-color:            #403E37;
+  --md-accent-fg-color--transparent: rgba(64, 62, 55, .1);
+
+  /* Links: same color as body text — underline is the only differentiator */
+  --md-typeset-a-color: rgba(0, 0, 0, .87);
+
+  /* Code surfaces: slightly darker cream */
+  --md-code-bg-color: #E8E7E1;
+  --md-code-fg-color: rgba(0, 0, 0, .87);
 }
 
+/* =============================================
+   DARK MODE — warm dark (cream palette inverted)
+   ============================================= */
+[data-md-color-scheme="slate"] {
+  /* Page background: warm dark */
+  --md-default-bg-color:           #1C1B17;
+  --md-default-bg-color--light:    #252420;
+  --md-default-bg-color--lighter:  #2E2C27;
+  --md-default-bg-color--lightest: #37352F;
+
+  /* Foreground text: warm off-white (the cream colour, used as text) */
+  --md-default-fg-color:           rgba(245, 244, 239, .87);
+  --md-default-fg-color--light:    rgba(245, 244, 239, .54);
+  --md-default-fg-color--lighter:  rgba(245, 244, 239, .32);
+  --md-default-fg-color--lightest: rgba(245, 244, 239, .07);
+
+  /* Header/nav */
+  --md-primary-fg-color:           rgba(245, 244, 239, .87);
+  --md-primary-fg-color--light:    rgba(245, 244, 239, .54);
+  --md-primary-fg-color--lighter:  rgba(245, 244, 239, .26);
+  --md-primary-bg-color:           #1C1B17;
+  --md-primary-bg-color--light:    rgba(245, 244, 239, .07);
+
+  /* Accent: warm sand */
+  --md-accent-fg-color:            #C7B89A;
+  --md-accent-fg-color--transparent: rgba(199, 184, 154, .1);
+
+  /* Links */
+  --md-typeset-a-color: rgba(245, 244, 239, .87);
+
+  /* Code surfaces */
+  --md-code-bg-color: #252420;
+  --md-code-fg-color: rgba(245, 244, 239, .87);
+}
+
+/* =============================================
+   HEADER — flat, blends into page background
+   ============================================= */
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Remove the scroll-triggered shadow, keep the border */
+.md-header[data-md-state="shadow"] {
+  box-shadow: none;
+}
+
+.md-tabs {
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+/* Tighter line height closer to pi.website (20/14 ≈ 1.43) */
+.md-typeset {
+  line-height: 1.5;
+}
+
+/* Slight negative letter-spacing on bold (pi.website: -0.01em) */
+.md-typeset strong,
+.md-typeset b {
+  letter-spacing: -0.01em;
+}
+
+/* =============================================
+   LINKS — pi.website treatment
+   ============================================= */
+/* Content links: same colour as text, very faint underline */
+.md-typeset a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(0, 0, 0, .2);
+  text-decoration-thickness: auto;
+}
+
+.md-typeset a:hover {
+  color: inherit;
+  text-decoration-color: rgba(0, 0, 0, .6);
+  text-decoration-thickness: 2px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  text-decoration-color: rgba(245, 244, 239, .2);
+}
+
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+  text-decoration-color: rgba(245, 244, 239, .6);
+}
+
+/* Nav tabs: underline with generous offset (pi.website nav: offset 8px) */
+.md-tabs__link {
+  text-underline-offset: 6px;
+}
+
+.md-tabs__link--active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
