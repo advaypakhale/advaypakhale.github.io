@@ -73,7 +73,7 @@ extra:
       name: Email me
       link: mailto:advay.pakhale@u.nus.edu
 copyright: >
-  Copyright &copy; 2018 – 2025 Advay Pakhale
+  Copyright &copy; 2018 – 2026 Advay Pakhale
 
 hooks:
   - hooks/socialmedia.py

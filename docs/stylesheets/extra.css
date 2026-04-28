@@ -83,6 +83,21 @@
 }
 
 /* =============================================
+   FOOTER — match page background
+   ============================================= */
+[data-md-color-scheme="default"] {
+  --md-footer-bg-color:       #EDECE6;
+  --md-footer-bg-color--dark: #E2E1DB;
+  --md-footer-fg-color:       rgba(0, 0, 0, .87);
+}
+
+[data-md-color-scheme="slate"] {
+  --md-footer-bg-color:       #252420;
+  --md-footer-bg-color--dark: #1C1B17;
+  --md-footer-fg-color:       rgba(245, 244, 239, .87);
+}
+
+/* =============================================
    HEADER — seamless, no shadow
    ============================================= */
 .md-header,
