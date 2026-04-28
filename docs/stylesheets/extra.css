@@ -8,13 +8,15 @@
 /* =============================================
    LIGHT MODE — warm cream (pi.website palette)
    =============================================
+   Selector [data-md-color-scheme="default"] > * targets <body>,
+   which is a closer ancestor than <html> (where palette.css sets
+   its vars), so our values win via CSS custom property inheritance.
+
    Material variable semantics:
-     --md-primary-fg-color = PRIMARY colour → used as HEADER/TABS BACKGROUND
-     --md-primary-bg-color = contrast on primary → HEADER ICONS/TEXT colour
-   Cream header: fg=cream, bg=dark.
-   Using :root[...] for specificity (0,2,0) > palette.css (0,1,0).
+     --md-primary-fg-color = PRIMARY colour → HEADER/TABS BACKGROUND
+     --md-primary-bg-color = contrast colour → HEADER ICONS/TEXT
    ============================================= */
-:root[data-md-color-scheme="default"] {
+[data-md-color-scheme="default"] > * {
   /* Page background */
   --md-default-bg-color:           #F5F4EF;
   --md-default-bg-color--light:    #EDECE6;
@@ -27,44 +29,48 @@
   --md-default-fg-color--lighter:  rgba(0, 0, 0, .32);
   --md-default-fg-color--lightest: rgba(0, 0, 0, .07);
 
-  /* Header/tabs: fg = background colour, bg = icon/text colour */
+  /* Header/tabs: fg = background, bg = icon/text colour */
   --md-primary-fg-color:           #F5F4EF;
   --md-primary-fg-color--light:    #EDECE6;
   --md-primary-fg-color--dark:     #E2E1DB;
   --md-primary-bg-color:           rgba(0, 0, 0, .87);
   --md-primary-bg-color--light:    rgba(0, 0, 0, .54);
 
-  /* Accent */
+  /* Accent: warm dark */
   --md-accent-fg-color:            #403E37;
   --md-accent-fg-color--transparent: rgba(64, 62, 55, .1);
   --md-accent-bg-color:            #F5F4EF;
-  --md-accent-bg-color--light:     rgba(64, 62, 55, .1);
 
-  /* Links — explicitly set so they don't inherit cream from primary-fg */
+  /* Links — explicit, don't inherit cream from primary-fg */
   --md-typeset-a-color:            rgba(0, 0, 0, .87);
 
   /* Code */
   --md-code-bg-color:              #E8E7E1;
   --md-code-fg-color:              rgba(0, 0, 0, .87);
 
-  /* Footer — slightly deeper cream */
+  /* Footer */
   --md-footer-bg-color:            #EDECE6;
   --md-footer-bg-color--dark:      #E2E1DB;
   --md-footer-fg-color:            rgba(0, 0, 0, .87);
 }
 
 /* =============================================
-   DARK MODE — warm dark, soothing
-   Palette: deep parchment dark, cream text.
+   DARK MODE — warm parchment dark
+   --md-hue shifts Material's slate palette toward
+   warm golden tones (default is 230 = cool blue).
    ============================================= */
-:root[data-md-color-scheme="slate"] {
+[data-md-color-scheme="slate"] {
+  --md-hue: 40;
+}
+
+[data-md-color-scheme="slate"] > * {
   /* Page background: dark warm parchment */
   --md-default-bg-color:           #1C1A12;
   --md-default-bg-color--light:    #252318;
   --md-default-bg-color--lighter:  #2E2B1E;
   --md-default-bg-color--lightest: #373424;
 
-  /* Page text: warm off-white */
+  /* Page text: warm off-white (the cream, as text) */
   --md-default-fg-color:           rgba(245, 244, 239, .87);
   --md-default-fg-color--light:    rgba(245, 244, 239, .54);
   --md-default-fg-color--lighter:  rgba(245, 244, 239, .32);
@@ -81,7 +87,6 @@
   --md-accent-fg-color:            #C8B97A;
   --md-accent-fg-color--transparent: rgba(200, 185, 122, .1);
   --md-accent-bg-color:            #1C1A12;
-  --md-accent-bg-color--light:     rgba(200, 185, 122, .1);
 
   /* Links */
   --md-typeset-a-color:            rgba(245, 244, 239, .87);
@@ -137,11 +142,11 @@
   text-decoration-thickness: 2px;
 }
 
-:root[data-md-color-scheme="slate"] .md-typeset a {
+[data-md-color-scheme="slate"] .md-typeset a {
   text-decoration-color: rgba(245, 244, 239, .2);
 }
 
-:root[data-md-color-scheme="slate"] .md-typeset a:hover {
+[data-md-color-scheme="slate"] .md-typeset a:hover {
   text-decoration-color: rgba(245, 244, 239, .6);
 }
 
