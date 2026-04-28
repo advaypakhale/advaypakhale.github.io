@@ -7,16 +7,9 @@
 
 /* =============================================
    LIGHT MODE — warm cream (pi.website palette)
-   =============================================
-   Selector [data-md-color-scheme="default"] > * targets <body>,
-   which is a closer ancestor than <html> (where palette.css sets
-   its vars), so our values win via CSS custom property inheritance.
-
-   Material variable semantics:
-     --md-primary-fg-color = PRIMARY colour → HEADER/TABS BACKGROUND
-     --md-primary-bg-color = contrast colour → HEADER ICONS/TEXT
+   extra.css loads after palette.css so same-specificity rules here win.
    ============================================= */
-[data-md-color-scheme="default"] > * {
+[data-md-color-scheme="default"] {
   /* Page background */
   --md-default-bg-color:           #F5F4EF;
   --md-default-bg-color--light:    #EDECE6;
@@ -56,14 +49,10 @@
 
 /* =============================================
    DARK MODE — warm parchment dark
-   --md-hue shifts Material's slate palette toward
-   warm golden tones (default is 230 = cool blue).
+   --md-hue shifts Material's slate palette toward warm golden tones.
    ============================================= */
 [data-md-color-scheme="slate"] {
   --md-hue: 40;
-}
-
-[data-md-color-scheme="slate"] > * {
   /* Page background: dark warm parchment */
   --md-default-bg-color:           #1C1A12;
   --md-default-bg-color--light:    #252318;
