@@ -110,7 +110,8 @@
    TYPOGRAPHY
    ============================================= */
 .md-typeset {
-  line-height: 1.5;
+  font-size: 0.7rem;       /* 14px — matches pi.website text-sm */
+  line-height: 1.4286;     /* 20px / 14px — matches pi.website */
 }
 
 .md-typeset strong,
