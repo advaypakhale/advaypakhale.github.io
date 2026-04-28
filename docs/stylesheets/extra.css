@@ -7,6 +7,11 @@
 
 /* =============================================
    LIGHT MODE — warm cream (pi.website palette)
+   =============================================
+   NOTE on Material variable semantics:
+     --md-primary-fg-color   = the PRIMARY accent colour → used as HEADER/TABS BACKGROUND
+     --md-primary-bg-color   = contrast colour on primary → used as HEADER ICONS/TEXT
+   To get a cream header: fg = cream, bg = dark.
    ============================================= */
 [data-md-color-scheme="default"] {
   /* Page background */
@@ -15,70 +20,73 @@
   --md-default-bg-color--lighter:  #E8E7E1;
   --md-default-bg-color--lightest: #E2E1DB;
 
-  /* Foreground text */
+  /* Page text */
   --md-default-fg-color:           rgba(0, 0, 0, .87);
   --md-default-fg-color--light:    rgba(0, 0, 0, .54);
   --md-default-fg-color--lighter:  rgba(0, 0, 0, .32);
   --md-default-fg-color--lightest: rgba(0, 0, 0, .07);
 
-  /* Header/nav — cream bg so header blends into page; dark text for contrast */
-  --md-primary-fg-color:           rgba(0, 0, 0, .87);
-  --md-primary-fg-color--light:    rgba(0, 0, 0, .54);
-  --md-primary-fg-color--lighter:  rgba(0, 0, 0, .26);
-  --md-primary-bg-color:           #F5F4EF;
-  --md-primary-bg-color--light:    rgba(0, 0, 0, .07);
+  /* Header/tabs background = cream (fg), icons/text on header = dark (bg) */
+  --md-primary-fg-color:           #F5F4EF;
+  --md-primary-fg-color--light:    #EDECE6;
+  --md-primary-fg-color--dark:     #E2E1DB;
+  --md-primary-bg-color:           rgba(0, 0, 0, .87);
+  --md-primary-bg-color--light:    rgba(0, 0, 0, .54);
 
-  /* Accent: pi.website warm dark border tone */
+  /* Accent: warm dark for active tab indicator etc. */
   --md-accent-fg-color:            #403E37;
   --md-accent-fg-color--transparent: rgba(64, 62, 55, .1);
+  --md-accent-bg-color:            #F5F4EF;
 
-  /* Links: same color as body text — underline is the only differentiator */
-  --md-typeset-a-color: rgba(0, 0, 0, .87);
+  /* Content links — explicitly set, do NOT inherit from primary-fg (which is now cream) */
+  --md-typeset-a-color:            rgba(0, 0, 0, .87);
 
-  /* Code surfaces: slightly darker cream */
-  --md-code-bg-color: #E8E7E1;
-  --md-code-fg-color: rgba(0, 0, 0, .87);
+  /* Code surfaces */
+  --md-code-bg-color:              #E8E7E1;
+  --md-code-fg-color:              rgba(0, 0, 0, .87);
 }
 
 /* =============================================
-   DARK MODE — warm dark (cream palette inverted)
+   DARK MODE — warm dark, soothing
    ============================================= */
 [data-md-color-scheme="slate"] {
-  /* Page background: warm dark */
+  /* Page background: deep warm dark */
   --md-default-bg-color:           #1C1B17;
   --md-default-bg-color--light:    #252420;
   --md-default-bg-color--lighter:  #2E2C27;
   --md-default-bg-color--lightest: #37352F;
 
-  /* Foreground text: warm off-white (the cream colour, used as text) */
+  /* Page text: warm off-white */
   --md-default-fg-color:           rgba(245, 244, 239, .87);
   --md-default-fg-color--light:    rgba(245, 244, 239, .54);
   --md-default-fg-color--lighter:  rgba(245, 244, 239, .32);
   --md-default-fg-color--lightest: rgba(245, 244, 239, .07);
 
-  /* Header/nav */
-  --md-primary-fg-color:           rgba(245, 244, 239, .87);
-  --md-primary-fg-color--light:    rgba(245, 244, 239, .54);
-  --md-primary-fg-color--lighter:  rgba(245, 244, 239, .26);
-  --md-primary-bg-color:           #1C1B17;
-  --md-primary-bg-color--light:    rgba(245, 244, 239, .07);
+  /* Header/tabs background = warm dark (fg), icons/text = cream (bg) */
+  --md-primary-fg-color:           #1C1B17;
+  --md-primary-fg-color--light:    #252420;
+  --md-primary-fg-color--dark:     #141310;
+  --md-primary-bg-color:           rgba(245, 244, 239, .87);
+  --md-primary-bg-color--light:    rgba(245, 244, 239, .54);
 
   /* Accent: warm sand */
   --md-accent-fg-color:            #C7B89A;
   --md-accent-fg-color--transparent: rgba(199, 184, 154, .1);
+  --md-accent-bg-color:            #1C1B17;
 
-  /* Links */
-  --md-typeset-a-color: rgba(245, 244, 239, .87);
+  /* Content links */
+  --md-typeset-a-color:            rgba(245, 244, 239, .87);
 
   /* Code surfaces */
-  --md-code-bg-color: #252420;
-  --md-code-fg-color: rgba(245, 244, 239, .87);
+  --md-code-bg-color:              #252420;
+  --md-code-fg-color:              rgba(245, 244, 239, .87);
 }
 
 /* =============================================
-   HEADER — seamless: no shadow at rest, tabs borderless
+   HEADER — seamless, no shadow
    ============================================= */
-.md-header {
+.md-header,
+.md-header[data-md-state="shadow"] {
   box-shadow: none;
 }
 
@@ -89,12 +97,10 @@
 /* =============================================
    TYPOGRAPHY
    ============================================= */
-/* Tighter line height closer to pi.website (20/14 ≈ 1.43) */
 .md-typeset {
   line-height: 1.5;
 }
 
-/* Slight negative letter-spacing on bold (pi.website: -0.01em) */
 .md-typeset strong,
 .md-typeset b {
   letter-spacing: -0.01em;
@@ -103,7 +109,6 @@
 /* =============================================
    LINKS — pi.website treatment
    ============================================= */
-/* Content links: same colour as text, very faint underline */
 .md-typeset a {
   color: inherit;
   text-decoration-line: underline;
@@ -126,12 +131,16 @@
   text-decoration-color: rgba(245, 244, 239, .6);
 }
 
-/* Blog posts only: Computer Modern Serif */
+/* =============================================
+   BLOG POSTS — Computer Modern Serif
+   ============================================= */
 .md-content--post .md-typeset {
   font-family: 'Computer Modern Serif', Georgia, serif;
 }
 
-/* Nav tabs: underline with generous offset (pi.website nav: offset 8px) */
+/* =============================================
+   NAV TABS — pi.website underline style
+   ============================================= */
 .md-tabs__link {
   text-underline-offset: 6px;
 }
