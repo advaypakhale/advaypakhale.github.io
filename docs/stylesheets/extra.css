@@ -41,9 +41,9 @@
   --md-code-bg-color:              #E8E7E1;
   --md-code-fg-color:              rgba(0, 0, 0, .87);
 
-  /* Footer */
-  --md-footer-bg-color:            #EDECE6;
-  --md-footer-bg-color--dark:      #E2E1DB;
+  /* Footer — same as body so all three are flush */
+  --md-footer-bg-color:            #F5F4EF;
+  --md-footer-bg-color--dark:      #F5F4EF;
   --md-footer-fg-color:            rgba(0, 0, 0, .87);
 }
 
@@ -84,8 +84,8 @@
   --md-code-bg-color:              #252318;
   --md-code-fg-color:              rgba(245, 244, 239, .87);
 
-  /* Footer */
-  --md-footer-bg-color:            #252318;
+  /* Footer — same as body so all three are flush */
+  --md-footer-bg-color:            #1C1A12;
   --md-footer-bg-color--dark:      #1C1A12;
   --md-footer-fg-color:            rgba(245, 244, 239, .87);
 }
@@ -137,6 +137,23 @@
 
 [data-md-color-scheme="slate"] .md-typeset a:hover {
   text-decoration-color: rgba(245, 244, 239, .6);
+}
+
+/* =============================================
+   FOOTER — explicit text/icon color
+   Material inherits footer icon color from --md-primary-fg-color by
+   default (cream on cream = invisible). Override to use fg explicitly.
+   ============================================= */
+.md-footer,
+.md-footer-meta,
+.md-footer-meta__inner,
+.md-copyright,
+.md-social__link {
+  color: var(--md-footer-fg-color);
+}
+
+.md-social__link svg {
+  fill: var(--md-footer-fg-color);
 }
 
 /* =============================================
