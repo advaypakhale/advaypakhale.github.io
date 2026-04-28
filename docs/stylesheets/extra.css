@@ -45,6 +45,8 @@
   --md-footer-bg-color:            #F5F4EF;
   --md-footer-bg-color--dark:      #F5F4EF;
   --md-footer-fg-color:            rgba(0, 0, 0, .87);
+  --md-footer-fg-color--light:     rgba(0, 0, 0, .54);
+  --md-footer-fg-color--lighter:   rgba(0, 0, 0, .32);
 }
 
 /* =============================================
@@ -88,6 +90,8 @@
   --md-footer-bg-color:            #1C1A12;
   --md-footer-bg-color--dark:      #1C1A12;
   --md-footer-fg-color:            rgba(245, 244, 239, .87);
+  --md-footer-fg-color--light:     rgba(245, 244, 239, .54);
+  --md-footer-fg-color--lighter:   rgba(245, 244, 239, .32);
 }
 
 /* =============================================
@@ -148,6 +152,7 @@
 .md-footer-meta,
 .md-footer-meta__inner,
 .md-copyright,
+.md-copyright__highlight,
 .md-social__link {
   color: var(--md-footer-fg-color);
 }
